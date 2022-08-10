@@ -1,3 +1,8 @@
+body {
+   min-height: 400px;
+   margin-bottom: 100px;
+   clear: both;
+}
 .header {
     height: 310px;
     margin: auto;
@@ -62,7 +67,13 @@
   footer {
     background-color: #0e5f99;
     color: white;
-    position: absolute;
+    position: fixed;
   	bottom: 0;
+  	width: 100%;
+  }
+  
+  .mainFooter{
+    background-color: #0e5f99;
+    color: white;
   	width: 100%;
   }
