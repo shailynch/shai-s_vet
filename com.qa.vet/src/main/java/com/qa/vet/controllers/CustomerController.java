@@ -4,19 +4,28 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.vet.persistence.dao.CustomerDAO;
 import com.qa.vet.persistence.domain.Customer;
 import com.qa.vet.utils.Utils;
 
-/**
- * Takes in customer details for CRUD functionality
- *
- */
+@RestController
+@RequestMapping("/") // anything after this url can be found in controller
 public class CustomerController implements CrudController<Customer> {
 
-	public static final Logger LOGGER = LogManager.getLogger();
+	public String home() {
+		return "Hello, World!";
+	} // no additional url so default return
 
+	@GetMapping("/test")
+	public String test() {
+		return "Test, World!";
+	}// url/test will produce this
+
+	public static final Logger LOGGER = LogManager.getLogger();
 	private CustomerDAO customerDAO;
 	private Utils utils;
 
