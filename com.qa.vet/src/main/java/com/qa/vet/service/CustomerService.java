@@ -1,10 +1,11 @@
 package com.qa.vet.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
-import com.qa.vet.persistence.domain.Customer;
+import com.qa.vet.models.Customer;
 import com.qa.vet.repo.CustomerRepo;
 
 //import com.qa.customerapi.models.Customer;
@@ -20,13 +21,19 @@ public class CustomerService {
 	}
 
 	// create
-	public Customer addCustomer(Customer customer) {
-		return repo.save(customer);
+	public Customer addCustomer(Customer newCustomer) {
+		return repo.save(newCustomer);
 	}
 
 	// read
 	public Customer readCustomer(Long id) {
 		return repo.findById(id).get();
+		// .get returns null or the customer as the customer would be optional
+		// type check would be better
+	}
+
+	public List<Customer> readAll() {
+		return repo.allFromCustomer();
 		// .get returns null or the customer as the customer would be optional
 		// type check would be better
 	}
