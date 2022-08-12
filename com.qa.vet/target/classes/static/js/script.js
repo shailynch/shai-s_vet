@@ -15,7 +15,7 @@ const addCustomer = () => {
         "email": customerEmail 
     } 
     
-    console.log(data);
+
 
     fetch(`${customerURL}/add`, {
         method: "POST",
