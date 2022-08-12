@@ -3,6 +3,7 @@ package com.qa.vet.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.qa.vet.models.Customer;
@@ -16,8 +17,11 @@ public class CustomerService {
 	private Customer customer;
 	private CustomerRepo repo;
 
-	public CustomerService() {
-		customer = new Customer();
+	@Autowired
+	public CustomerService(CustomerRepo repo) {
+		super();
+		this.customer = new Customer();
+		this.repo = repo;
 	}
 
 	// create

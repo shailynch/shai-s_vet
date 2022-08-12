@@ -1,11 +1,14 @@
 package com.qa.vet.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,23 +28,32 @@ public class CustomerController {
 
 	// Aggregate root
 	// tag::get-aggregate-root[]
-	@GetMapping("/")
-	public String trial() {
-//	List<Customer> all() {
-//		return service.readAll();
-		System.out.println("trial");
-		return "trial";
+	@GetMapping("/all")
+	List<Customer> all() {
+		return service.readAll();
 
 	}
 
-	@PostMapping("/customers")
-	Customer newCustomer(@RequestBody Customer newCustomer) {
-		return service.addCustomer(newCustomer);
+	@CrossOrigin
+	@PostMapping("/add")
+	public String newCustomerForm(Customer customer, Model model) {
+		model.addAttribute("customer", customer);
+		Customer newCustomer = customer;
+		service.addCustomer(newCustomer);
+		return customer.toString();
+
 	}
 
-	// Single item
+//	@PostMapping("/add")
+//	public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer) {
+//		Customer newCustomer = service.addCustomer(customer);
+//		return new ResponseEntity<Customer>(newCustomer, HttpStatus.CREATED);
+//
+//	}
 
-	@GetMapping("/customers/{id}")
+	// Single itemz
+
+	@GetMapping("/{id}")
 	Customer one(@PathVariable Long id) {
 
 		return service.readCustomer(id);
@@ -63,7 +75,7 @@ public class CustomerController {
 //		});
 //	}
 
-	@DeleteMapping("/customers/{id}")
+	@DeleteMapping("/{id}")
 	void deleteCustomer(@PathVariable Long id) {
 		service.deleteByCustomerID(id);
 	}
