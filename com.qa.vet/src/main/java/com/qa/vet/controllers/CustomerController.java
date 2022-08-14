@@ -3,12 +3,12 @@ package com.qa.vet.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,22 +36,11 @@ public class CustomerController {
 
 	@CrossOrigin
 	@PostMapping("/add")
-	public String newCustomerForm(Customer customer, Model model) {
-		model.addAttribute("customer", customer);
+	public String newCustomerForm(@RequestBody Customer customer) {
 		Customer newCustomer = customer;
 		service.addCustomer(newCustomer);
 		return customer.toString();
-
 	}
-
-//	@PostMapping("/add")
-//	public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer) {
-//		Customer newCustomer = service.addCustomer(customer);
-//		return new ResponseEntity<Customer>(newCustomer, HttpStatus.CREATED);
-//
-//	}
-
-	// Single itemz
 
 	@GetMapping("/{id}")
 	Customer one(@PathVariable Long id) {

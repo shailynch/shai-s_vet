@@ -7,15 +7,14 @@ const _email = document.querySelector("#email");
 const addCustomer = () => {
     const customerFirstName  = _first_name.value;
     const customerLastName  = _last_name.value;
-	const customerEmail = _email.value;
-	
+    const customerEmail = _email.value;
+    
     let data = { 
-        "firstname": customerFirstName, 
-        "lastname": customerLastName, 
+        "firstName": customerFirstName, 
+        "lastName": customerLastName, 
         "email": customerEmail 
     } 
     
-
 
     fetch(`${customerURL}/add`, {
         method: "POST",

@@ -1,10 +1,10 @@
 package com.qa.vet.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class Customer {
@@ -13,19 +13,12 @@ public class Customer {
 	private Long Id;
 
 	// Name that is not null
-	@NotNull
+	@Column
 	private String firstName;
-
-	@NotNull
+	@Column
 	private String lastName;
-
-	@NotNull
+	@Column
 	private String email;
-
-	// age -- min and max
-//	@Min(0)
-//	@Max(25)
-//	private int age;
 
 	public Long getId() {
 		return Id;
