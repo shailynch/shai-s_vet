@@ -46,7 +46,6 @@ const addPet = () => {
         "petType": petType, 
         "customerID": customerID 
     } 
-    
 
     fetch(`${petURL}/add`, {
         method: "POST",

@@ -23,13 +23,13 @@
   </div>
     <div class="form bg-light">
         <div class="container">
-            <form >
+            <form>
                 <label for="pet_name">Pet Name</label>
                 <input type="text" class="form-control" id="pet_name" >
-                <label for="last_name">Last Name</label>
+                <label for="pet_type">Pet Type</label>
                 <input type="text" class="form-control" id="pet_type" th:field="*{pet_type}">
-                <label for="email" class="form-label">Customner ID</label>
-                <input type="email" class="form-control" id="customer_id" th:field="*{customer_id}">
+                <label for="customer_id" class="form-label">Customner ID</label>
+                <input type="text" class="form-control" id="customer_id" th:field="*{customer_id}">
                 <button type="submit" class="btn btn-primary" onclick="addPet()">Submit</button>
             </form>
         </div>
