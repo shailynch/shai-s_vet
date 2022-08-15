@@ -9,9 +9,6 @@ import org.springframework.stereotype.Component;
 import com.qa.vet.models.Customer;
 import com.qa.vet.repo.CustomerRepo;
 
-//import com.qa.customerapi.models.Customer;
-//import com.qa.customerapi.repo.CustomerRepo;
-
 @Component
 public class CustomerService {
 	private Customer customer;
