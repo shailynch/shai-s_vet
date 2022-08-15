@@ -42,8 +42,8 @@ const addPet = () => {
     const customerID = _customer_id.value;
     
     let data = { 
-        "petName": petName, 
-        "petType": petType, 
+        "name": petName, 
+        "type": petType, 
         "customerID": customerID 
     } 
 
