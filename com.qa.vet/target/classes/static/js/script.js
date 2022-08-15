@@ -10,9 +10,9 @@ const _pet_type = document.querySelector("#pet_type");
 const _customer_id = document.querySelector("#customer_id");
 
 const vetURL = "http://localhost:8088/vet";
-const _vet_first_name = document.querySelector("#first_name");
-const _vet_last_name = document.querySelector("#last_name");
-const _vet_email = document.querySelector("#email");
+const _vet_first_name = document.querySelector("#vet_first_name");
+const _vet_last_name = document.querySelector("#vet_last_name");
+const _vet_email = document.querySelector("#vet_email");
 
 const addCustomer = () => {
     const customerFirstName  = _first_name.value;
@@ -29,6 +29,24 @@ const addCustomer = () => {
     fetch(`${customerURL}/add`, {
         method: "POST",
         body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+        .then(response => response.json())
+        .then(model => {
+            console.log(model);
+            allFromCustomer();
+        })
+        .catch(err => console.error(`error ${err}`));
+};
+
+const showVet = () => {
+	windows.alert(5)
+	
+	fetch(`${vetURL}/add`, {
+        method: "GET",
+        body: JSON.stringify("cake"),
         headers: {
             "Content-Type": "application/json"
         }
