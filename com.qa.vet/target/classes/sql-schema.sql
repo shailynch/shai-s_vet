@@ -1,5 +1,3 @@
-drop schema vet;
-
 CREATE SCHEMA IF NOT EXISTS `vet`;
 
 USE `vet` ;
@@ -33,8 +31,7 @@ CREATE TABLE IF NOT EXISTS `vet`.`pet` (
     `type` VARCHAR(40) DEFAULT NULL,
     `customer_id` INT(11) DEFAULT NULL,
     `dob` VARCHAR(40) DEFAULT NULL,
-    PRIMARY KEY (`id`),
-    FOREIGN KEY (customer_id) REFERENCES customer(id)
+    PRIMARY KEY (`id`)
 );
 
 CREATE TABLE IF NOT EXISTS `vet`.`appointment` (
@@ -42,8 +39,5 @@ CREATE TABLE IF NOT EXISTS `vet`.`appointment` (
     `customer_id` INT(11),
     `pet_id` INT(11),
     `vet_id` INT(11),
-    PRIMARY KEY (`id`),
-    FOREIGN KEY (customer_id) REFERENCES customer(id),
-    FOREIGN KEY (pet_id) REFERENCES pet(id),
-    FOREIGN KEY (vet_id) REFERENCES vet(id)
+    PRIMARY KEY (`id`)
 );
