@@ -22,7 +22,7 @@
         <!-- Request an appointment -->
         <a href="newAppointmentForm.html">Request an appointment</a>
         <!-- Amend or an appointment -->
-        <a href="updateAppointmentForm.html">Request an appointment</a>
+        <a href="updateAppointmentForm.html">Update an appointment</a>
     </div>
   </div>
     <div class="form bg-light">
@@ -32,9 +32,9 @@
                 <input type="text" class="form-control" id="first_name" >
                 <label for="last_name">Last Name</label>
                 <input type="text" class="form-control" id="last_name" th:field="*{lastName}">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" th:field="*{email}">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <label for="pet_name" class="form-label">Pet Name</label>
+                <input type="pet_name" class="form-control" id="pet_name">
+                <div  class="form-text">Bookings are not guranteed</div>
                 <button type="submit" class="btn btn-primary" onclick="addCustomer()">Submit</button>
             </form>
         </div>
