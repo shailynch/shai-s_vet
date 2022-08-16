@@ -104,6 +104,7 @@ const addPet = () => {
 };
 
 const addAppointment = () => {
+	
     const petID = _appointment_pet_id.value;
     const customerID = _appointment_customer_id.value;
     const vetID = _appointment_vet_id.value;

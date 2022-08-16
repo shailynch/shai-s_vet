@@ -1,5 +1,7 @@
 package com.qa.vet.models;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,9 +16,9 @@ public class Appointment {
 
 	// Name that is not null
 	@Column
-	private String name;
+	private Long vetID;
 	@Column
-	private String type;
+	private Long petID;
 	@Column
 	private Long customerID;
 
@@ -28,22 +30,6 @@ public class Appointment {
 		this.Id = Id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
 	public Long getCustomerID() {
 		return customerID;
 	}
@@ -52,19 +38,30 @@ public class Appointment {
 		this.customerID = customerID;
 	}
 
+	public Long getVetID() {
+		return vetID;
+	}
+
+	public void setVetID(Long vetID) {
+		this.vetID = vetID;
+	}
+
+	public Long getPetID() {
+		return petID;
+	}
+
+	public void setPetID(Long petID) {
+		this.petID = petID;
+	}
+
 	@Override
 	public String toString() {
-		return "id:" + Id + " first name:" + name + " type:" + type + "customerID" + customerID;
+		return "Appointment [Id=" + Id + ", vetID=" + vetID + ", petID=" + petID + ", customerID=" + customerID + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((Id == null) ? 0 : Id.hashCode());
-		result = prime * result + ((type == null) ? 0 : type.hashCode());
-		return result;
+		return Objects.hash(Id, customerID, petID, vetID);
 	}
 
 	@Override
@@ -76,38 +73,24 @@ public class Appointment {
 		if (getClass() != obj.getClass())
 			return false;
 		Appointment other = (Appointment) obj;
-		if (getName() == null) {
-			if (other.getName() != null)
-				return false;
-		} else if (!getName().equals(other.getName()))
-			return false;
-		if (Id == null) {
-			if (other.Id != null)
-				return false;
-		} else if (!Id.equals(other.Id))
-			return false;
-		if (type == null) {
-			if (other.type != null)
-				return false;
-		} else if (!type.equals(other.type))
-			return false;
-		return true;
+		return Objects.equals(Id, other.Id) && Objects.equals(customerID, other.customerID)
+				&& Objects.equals(petID, other.petID) && Objects.equals(vetID, other.vetID);
 	}
 
 	public Appointment() {
 
 	}
 
-	public Appointment(String name, String type, Long customerID) {
-		this.setName(name);
-		this.setType(type);
+	public Appointment(Long customerID, Long petID, Long vetID) {
 		this.setCustomerID(customerID);
+		this.setPetID(petID);
+		this.setVetID(vetID);
 	}
 
-	public Appointment(Long id, String name, String type, Long customerID) {
+	public Appointment(Long id, Long customerID, Long petID, Long vetID) {
 		this.setId(id);
-		this.setName(name);
-		this.setType(type);
+		this.setPetID(petID);
+		this.setVetID(vetID);
 		this.setCustomerID(customerID);
 	}
 
