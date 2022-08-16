@@ -51,7 +51,7 @@ const addVet = () => {
         "lastName": vetLastName, 
         "email": vetEmail 
     } 
-    
+
 
     fetch(`${vetURL}/add`, {
         method: "POST",
@@ -66,6 +66,8 @@ const addVet = () => {
             allFromCustomer();
         })
         .catch(err => console.error(`error ${err}`));
+        
+        
 };
 
 const addPet = () => {

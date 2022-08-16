@@ -22,7 +22,7 @@
         <!-- Request an appointment -->
         <a href="newAppointmentForm.html">Request an appointment</a>
         <!-- Amend or an appointment -->
-        <a href="updateAppointmentForm.html">Request an appointment</a>
+        <a href="updateAppointmentForm.html">Update an appointment</a>
     </div>
   </div>
     <div class="form bg-light">
@@ -31,9 +31,9 @@
                 <label for="vet_first_name">First Name</label>
                 <input type="text" class="form-control" id="vet_first_name" >
                 <label for="vet_last_name">Last Name</label>
-                <input type="text" class="form-control" id="vet_last_name" th:field="*{lastName}">
+                <input type="text" class="form-control" id="vet_last_name">
                 <label for="vet_email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="vet_email" aria-describedby="emailHelp" th:field="*{email}">
+                <input type="email" class="form-control" id="vet_email" aria-describedby="emailHelp">
                 <button type="submit" class="btn btn-primary" onclick="addVet()">Submit</button>
             </form>
         </div>
