@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.vet.models.Customer;
+import com.qa.vet.repo.CustomerRepo;
 import com.qa.vet.service.CustomerService;
 
 @RestController
@@ -40,6 +42,26 @@ public class CustomerController {
 		Customer newCustomer = customer;
 		service.addCustomer(newCustomer);
 		return customer.toString();
+	}
+
+	@CrossOrigin
+	@PutMapping("/update/{id}")
+	public String updateCustomerForm(@PathVariable Long id, @RequestBody Customer customer) {
+		Customer existing;
+		try {
+			existing = CustomerRepo.findByID(id);
+			existing.setFirstName(customer.getFirstName());
+			existing.setLastName(customer.getLastName());
+			existing.setEmail(customer.getEmail());
+
+			return customer.toString();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			Customer newCustomer = customer;
+			service.addCustomer(newCustomer);
+			return customer.toString();
+		}
+
 	}
 
 	@GetMapping("/{id}")

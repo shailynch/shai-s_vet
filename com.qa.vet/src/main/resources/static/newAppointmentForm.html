@@ -26,12 +26,12 @@
     <div class="form bg-light">
         <div class="container">
             <form >
-                <label for="customer_id">Customer ID</label>
-                <input type="text" class="form-control" id="customer_id" >
-                <label for="pet_id">Pet ID</label>
-                <input type="text" class="form-control" id="pet_id" th:field="*{lastName}">
-                <label for="vet_id" class="form-label">Vet ID</label>
-                <input type="text" class="form-control" id="vet_id">
+                <label for="appointment_customer_id">Customer ID</label>
+                <input type="text" class="form-control" id="appointment_customer_id" >
+                <label for="appointment_pet_id">Pet ID</label>
+                <input type="text" class="form-control" id="appointment_pet_id" th:field="*{lastName}">
+                <label for="appointment_vet_id" class="form-label">Vet ID</label>
+                <input type="text" class="form-control" id="appointment_vet_id">
                 <div  class="form-text">Bookings are not guranteed</div>
                 <button type="submit" class="btn btn-primary" onclick="addAppointment()">Submit</button>
             </form>

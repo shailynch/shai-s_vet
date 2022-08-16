@@ -41,3 +41,6 @@ CREATE TABLE IF NOT EXISTS `vet`.`appointment` (
     `vet_id` INT(11),
     PRIMARY KEY (`id`)
 );
+
+INSERT INTO `vet`.`customer` (`first_name`, `last_name`, `email`) VALUES ('shai', 'lynch', 'slynch\"qa.com');
+INSERT INTO `vet`.`pet` (`name`, `type`, `customerid`) VALUES ('Tom', 'tortoise', 1);

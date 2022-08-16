@@ -4,6 +4,12 @@ const _first_name = document.querySelector("#first_name");
 const _last_name = document.querySelector("#last_name");
 const _email = document.querySelector("#email");
 
+const _update_first_name = document.querySelector("#new_first_name");
+const _update_last_name = document.querySelector("#new_last_name");
+const _update_email = document.querySelector("#new_email");
+const _update_customer_id= document.querySelector("#new_id")
+
+
 const petURL = "http://localhost:8088/pet";
 const _pet_name = document.querySelector("#pet_name");
 const _pet_type = document.querySelector("#pet_type");
@@ -130,8 +136,40 @@ const addAppointment = () => {
 
 };
 
-const deleteTask = (taskId) => {
-    fetch(`${taskUrl}/delete/${taskId}`, {
+
+const updateCustomer = () => {
+   const updateCustomerFirstName  = _update_first_name.value;
+    const updateCustomerLastName  = _update_last_name.value;
+    const updateCustomerEmail = _update_email.value;
+    const updateCustomerID = _update_customer_id.value;
+
+	
+
+    let data = { 
+		"id":  updateCustomerID,
+        "firstName": updateCustomerFirstName , 
+        "lastName": updateCustomerLastName, 
+        "email": updateCustomerEmail  
+    } 
+
+   fetch(`${customerURL}/update/${updateCustomerID}`, {
+     method: 'PUT',
+     body: JSON.stringify(data),
+      headers: {
+            "Content-Type": "application/json"
+        }
+    })
+        .then(response => response.json())
+        .then(model => {
+            console.log(model);
+            allFromCustomer();
+        })
+        .catch(err => console.error(`error ${err}`))
+        console.log("fail");
+        };
+
+const deleteCustomer = (customerID) => {
+    fetch(`${customerURL}/delete/${customerID}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
