@@ -41,30 +41,12 @@ const addCustomer = () => {
         .catch(err => console.error(`error ${err}`));
 };
 
-const showVet = () => {
-	windows.alert(5)
-	
-	fetch(`${vetURL}/add`, {
-        method: "GET",
-        body: JSON.stringify("cake"),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-        .then(response => response.json())
-        .then(model => {
-            console.log(model);
-            allFromCustomer();
-        })
-        .catch(err => console.error(`error ${err}`));
-};
-
 const addVet = () => {
     const vetFirstName  = _vet_first_name.value;
     const vetLastName  = _vet_last_name.value;
     const vetEmail = _vet_email.value;
     
-    let vetData = { 
+    let data = { 
         "firstName": vetFirstName, 
         "lastName": vetLastName, 
         "email": vetEmail 
@@ -73,7 +55,7 @@ const addVet = () => {
 
     fetch(`${vetURL}/add`, {
         method: "POST",
-        body: JSON.stringify(vetData),
+        body: JSON.stringify(data),
         headers: {
             "Content-Type": "application/json"
         }
