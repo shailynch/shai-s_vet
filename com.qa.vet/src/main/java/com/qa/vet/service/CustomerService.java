@@ -27,10 +27,13 @@ public class CustomerService {
 	}
 
 	// read
-	public Customer readCustomer(Long id) {
-		return repo.findById(id).get();
-		// .get returns null or the customer as the customer would be optional
-		// type check would be better
+	public String readCustomer(Long id) {
+		Customer customerCheck = repo.findById(id).get();
+		if (customerCheck != null) {
+			return customerCheck.toString();
+		} else {
+			return "not found";
+		}
 	}
 
 	public List<Customer> readAll() {
