@@ -18,4 +18,10 @@ public interface PetRepo extends JpaRepository<Pet, Long> {
 	@Query(value = "SELECT * FROM pet WHERE name = ?1", nativeQuery = true)
 	public List<Pet> petNameMatch(String name);
 
+	@Query(value = "SELECT * FROM pet WHERE id = ?1", nativeQuery = true)
+	public static Pet findByID(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

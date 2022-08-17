@@ -53,6 +53,7 @@ public class CustomerController {
 			existing.setFirstName(customer.getFirstName());
 			existing.setLastName(customer.getLastName());
 			existing.setEmail(customer.getEmail());
+			service.updateCustomer(existing, id);
 
 			return customer.toString();
 		} catch (Exception e) {
