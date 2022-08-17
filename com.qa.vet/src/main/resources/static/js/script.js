@@ -138,6 +138,7 @@ const addAppointment = () => {
 
 
 const updateCustomer = () => {
+	    window.alert(`${customerURL}/update/${_update_customer_id.value}`);
    const updateCustomerFirstName  = _update_first_name.value;
     const updateCustomerLastName  = _update_last_name.value;
     const updateCustomerEmail = _update_email.value;
@@ -151,6 +152,8 @@ const updateCustomer = () => {
         "lastName": updateCustomerLastName, 
         "email": updateCustomerEmail  
     } 
+    
+
 
    fetch(`${customerURL}/update/${updateCustomerID}`, {
      method: 'PUT',
