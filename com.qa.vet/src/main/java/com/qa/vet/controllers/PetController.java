@@ -57,9 +57,9 @@ public class PetController {
 		Pet existing;
 		try {
 			existing = PetRepo.findByID(id);
-			existing.setFirstName(pet.getFirstName());
-			existing.setLastName(pet.getLastName());
-			existing.setEmail(pet.getEmail());
+			existing.setName(pet.getName());
+			existing.setType(pet.getType());
+			existing.setCustomerID(pet.getCustomerID());
 
 			return pet.toString();
 		} catch (Exception e) {
